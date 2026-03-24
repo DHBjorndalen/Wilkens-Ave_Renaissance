@@ -99,7 +99,7 @@
       </div>
 
       <div style="margin-top:3rem; text-align:center;">
-        <button class="btn-primary" onclick="showPage('join')">Get Involved Today</button>
+        <a href="{{ url_for('join') }}" class="btn-primary">Get Involved Today</a>
       </div>
     </div>
   </section>
@@ -129,7 +129,7 @@
     </div>
   </footer>
   <div class="footer-bottom">
-    © 2025 Wilkens Ave Renaissance Coalition · Baltimore, MD
+    © {{ current_year }} Wilkens Ave Renaissance Coalition · Baltimore, MD
   </div>
 
 </body>

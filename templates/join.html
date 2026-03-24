@@ -81,7 +81,8 @@
                 <div class="form-group">
                     <label for="association">{{ form.association.label.text }} <span
                             style="font-weight:300; color:var(--mid);">(optional)</span></label>
-                    {{ form.association(class="form-control", id="association", placeholder="Neighborhood association, employer, school, etc.") }}
+                    {{ form.association(class="form-control", id="association", placeholder="Neighborhood association,
+                    employer, school, etc.") }}
                     {% for error in form.association.errors %}
                     <span class="form-error">{{ error }}</span>
                     {% endfor %}
@@ -98,7 +99,8 @@
                 <div class="form-group">
                     <label for="message">{{ form.message.label.text }} <span
                             style="font-weight:300; color:var(--mid);">(optional)</span></label>
-                    {{ form.message(class="form-control", id="message", placeholder="Anything you'd like us to know…") }}
+                    {{ form.message(class="form-control", id="message", placeholder="Anything you'd like us to know…")
+                    }}
                     {% for error in form.message.errors %}
                     <span class="form-error">{{ error }}</span>
                     {% endfor %}
@@ -166,7 +168,7 @@
         </div>
     </footer>
     <div class="footer-bottom">
-        © 2025 Wilkens Ave Renaissance Coalition · Baltimore, MD
+        © {{ current_year }} Wilkens Ave Renaissance Coalition · Baltimore, MD
     </div>
 
 </body>

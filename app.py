@@ -6,12 +6,18 @@ from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
 from wtforms import SelectField
+from datetime import datetime
 
 load_dotenv() 
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev_key") 
 csrf = CSRFProtect(app) 
+
+
+@app.context_processor
+def inject_now():
+    return {"current_year": datetime.utcnow().year}
 
 # ---------------------
 # Flask-WTF Form

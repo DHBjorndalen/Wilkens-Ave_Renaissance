@@ -1,7 +1,11 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for, flash
 
+load_dotenv()  # load .env
+
 app = Flask(__name__)
-app.secret_key = "your_secret_key_here"
+app.secret_key = os.environ.get("SECRET_KEY")
 
 # Root route → Home page
 @app.route("/")
@@ -38,4 +42,4 @@ def events():
     return render_template("events.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

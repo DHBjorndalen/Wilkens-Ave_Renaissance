@@ -11,29 +11,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:...&family=DM+Sans:..." rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../static/styles.css" />
 </head>
 
 <body>
 
     <!-- ══════════ NAV ══════════ -->
     <nav>
-        <a href="index.html" class="nav-logo">
+        <a href="{{ url_for('index') }}" class="nav-logo">
             Wilkens Ave Renaissance
             <span>Coalition</span>
         </a>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="join.html" class="nav-cta">Join Us</a></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('events') }}">Events</a></li>
+            <li><a href="{{ url_for('join') }}" class="nav-cta">Join Us</a></li>
         </ul>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="events.html">Events</a>
-        <a href="join.html" class="nav-cta">Join Us</a>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('events') }}">Events</a>
+        <a href="{{ url_for('join') }}" class="nav-cta">Join Us</a>
     </div>
 
 
@@ -71,7 +71,7 @@
             <li>Better street lighting for safety after dark</li>
         </ul>
 
-        <img src="assets/images/1900-Wilkens.webp" alt="Proposed 1900 Block of Wilkens Avenue" class="page-image"/>
+        <img src="../static/images/1900-Wilkens.webp" alt="Proposed 1900 Block of Wilkens Avenue" class="page-image"/>
 
         <div class="divider"></div>
 
@@ -93,28 +93,27 @@
     </div>
 
 
-    <footer>
-        <div class="footer-brand">
-            <p>Wilkens Ave Renaissance Coalition</p>
-            <span>A community coalition advocating for safer streets, better transit, and a more vibrant corridor in
-                Southwest Baltimore.</span>
-        </div>
-        <div>
-            <h4>Pages</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="join.html">Join Us</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Contact</h4>
-            <ul>
-                <li><a href="mailto:dhbjorndalen@gmail.com">dhbjorndalen@gmail.com</a></li>
-            </ul>
-        </div>
-    </footer>
+<footer>
+    <div class="footer-brand">
+        <p>Wilkens Ave Renaissance Coalition</p>
+        <span>A community coalition advocating for safer streets, better transit, and a more vibrant corridor in Southwest Baltimore.</span>
+    </div>
+    <div>
+        <h4>Pages</h4>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('events') }}">Events</a></li>
+            <li><a href="{{ url_for('join') }}">Join Us</a></li>
+        </ul>
+    </div>
+    <div>
+        <h4>Contact</h4>
+        <ul>
+            <li><a href="mailto:dhbjorndalen@gmail.com">dhbjorndalen@gmail.com</a></li>
+        </ul>
+    </div>
+</footer>
     <div class="footer-bottom">
         © 2025 Wilkens Ave Renaissance Coalition · Baltimore, MD
     </div>

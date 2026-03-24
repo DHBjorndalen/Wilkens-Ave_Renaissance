@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Us - Wilkens Ave Renaissance Coalition</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:...&family=DM+Sans:..." rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+
+<body>
+
+    <!-- ══════════ NAV ══════════ -->
+    <nav>
+        <a href="{{ url_for('index') }}" class="nav-logo">
+            Wilkens Ave Renaissance
+            <span>Coalition</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('events') }}">Events</a></li>
+            <li><a href="{{ url_for('join') }}" class="nav-cta">Join Us</a></li>
+        </ul>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('events') }}">Events</a>
+        <a href="{{ url_for('join') }}" class="nav-cta">Join Us</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="join-hero">
+        <p class="section-label" style="color:var(--amber-light);" class="animate">Get Involved</p>
+        <h1 class="animate">Join the Coalition</h1>
+        <p class="animate">Whether you want to stay informed, volunteer your time, or represent your block — there's a
+            place for you here.</p>
+    </section>
+
+    <div class="join-body">
+        <div>
+            <h2 style="font-family:'Fraunces',serif; font-size:1.4rem; margin-bottom:1.5rem;">Sign Up / Contact Us</h2>
+
+            <!-- Flask Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, msg in messages %}
+            <div class="success-banner {{ category }}">{{ msg }}</div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <!-- Contact Form -->
+            <form method="POST" action="{{ url_for('join') }}">
+                <div class="form-group">
+                    <label for="fname">Full Name *</label>
+                    <input type="text" id="fname" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="you@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="association">Organization or Association <span
+                            style="font-weight:300; color:var(--mid);">(optional)</span></label>
+                    <input type="text" id="association" name="association"
+                        placeholder="Neighborhood association, employer, school, etc.">
+                </div>
+                <div class="form-group">
+                    <label for="interest">How would you like to get involved?</label>
+                    <select id="interest" name="interest">
+                        <option value="">— Select one —</option>
+                        <option>Stay informed via email updates</option>
+                        <option>Attend monthly meetings</option>
+                        <option>Volunteer at events</option>
+                        <option>Help with outreach & communications</option>
+                        <option>Represent my block or organization</option>
+                        <option>Other — I'll explain below</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message or Questions <span
+                            style="font-weight:300; color:var(--mid);">(optional)</span></label>
+                    <textarea id="message" name="message" placeholder="Anything you'd like us to know…"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Send Message →</button>
+            </form>
+
+            <p class="form-note">We respect your privacy and will never share your information.</p>
+        </div>
+
+        <div>
+            <!-- Side Info -->
+            <div class="contact-info">
+                <h3>Other Ways to Connect</h3>
+                <div class="contact-row">
+                    <div>
+                        <h4>Email</h4>
+                        <p>dhbjorndalen@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div>
+                        <h4>Meetings</h4>
+                        <p>Some time<br>Some Place</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="involvement-box">
+                <h4>Ways to Get Involved</h4>
+                <ul>
+                    <li>Attend a monthly coalition meeting</li>
+                    <li>Join a community safety walk</li>
+                    <li>Help document corridor safety issues</li>
+                    <li>Sign and share our petitions</li>
+                    <li>Speak at public hearings</li>
+                    <li>Connect us to your neighbors</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">
+            <p>Wilkens Ave Renaissance Coalition</p>
+            <span>A community coalition advocating for safer streets, better transit, and a more vibrant corridor in
+                Southwest Baltimore.</span>
+        </div>
+        <div>
+            <h4>Pages</h4>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('events') }}">Events</a></li>
+                <li><a href="{{ url_for('join') }}">Join Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="mailto:dhbjorndalen@gmail.com">dhbjorndalen@gmail.com</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        © 2025 Wilkens Ave Renaissance Coalition · Baltimore, MD
+    </div>
+
+</body>
+
+</html>

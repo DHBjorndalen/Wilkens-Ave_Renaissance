@@ -71,7 +71,8 @@
             <li>Better street lighting for safety after dark</li>
         </ul>
 
-        <img src="../static/images/1900-Wilkens.webp" alt="Proposed 1900 Block of Wilkens Avenue" class="page-image"/>
+        <img src="{{ url_for('static', filename='../static/images/1900-Wilkens.webp') }}"
+            alt="Proposed 1900 Block of Wilkens Avenue" class="page-image" />
 
         <div class="divider"></div>
 
@@ -88,32 +89,33 @@
 
 
         <div style="margin-top:2.5rem;">
-            <a href="join.html" class="btn-primary">Join the Coalition</a>
+            <a href="{{ url_for('join') }}" class="btn-primary">Join the Coalition</a>
         </div>
     </div>
 
 
-<footer>
-    <div class="footer-brand">
-        <p>Wilkens Ave Renaissance Coalition</p>
-        <span>A community coalition advocating for safer streets, better transit, and a more vibrant corridor in Southwest Baltimore.</span>
-    </div>
-    <div>
-        <h4>Pages</h4>
-        <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('events') }}">Events</a></li>
-            <li><a href="{{ url_for('join') }}">Join Us</a></li>
-        </ul>
-    </div>
-    <div>
-        <h4>Contact</h4>
-        <ul>
-            <li><a href="mailto:dhbjorndalen@gmail.com">dhbjorndalen@gmail.com</a></li>
-        </ul>
-    </div>
-</footer>
+    <footer>
+        <div class="footer-brand">
+            <p>Wilkens Ave Renaissance Coalition</p>
+            <span>A community coalition advocating for safer streets, better transit, and a more vibrant corridor in
+                Southwest Baltimore.</span>
+        </div>
+        <div>
+            <h4>Pages</h4>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('events') }}">Events</a></li>
+                <li><a href="{{ url_for('join') }}">Join Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="mailto:dhbjorndalen@gmail.com">dhbjorndalen@gmail.com</a></li>
+            </ul>
+        </div>
+    </footer>
     <div class="footer-bottom">
         © 2025 Wilkens Ave Renaissance Coalition · Baltimore, MD
     </div>

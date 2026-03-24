@@ -60,39 +60,51 @@
 
             <!-- Contact Form -->
             <form method="POST" action="{{ url_for('join') }}">
+                {{ form.hidden_tag() }}
+
                 <div class="form-group">
-                    <label for="fname">Full Name *</label>
-                    <input type="text" id="fname" name="name" placeholder="Your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" placeholder="you@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="association">Organization or Association <span
-                            style="font-weight:300; color:var(--mid);">(optional)</span></label>
-                    <input type="text" id="association" name="association"
-                        placeholder="Neighborhood association, employer, school, etc.">
-                </div>
-                <div class="form-group">
-                    <label for="interest">How would you like to get involved?</label>
-                    <select id="interest" name="interest">
-                        <option value="">— Select one —</option>
-                        <option>Stay informed via email updates</option>
-                        <option>Attend monthly meetings</option>
-                        <option>Volunteer at events</option>
-                        <option>Help with outreach & communications</option>
-                        <option>Represent my block or organization</option>
-                        <option>Other — I'll explain below</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message or Questions <span
-                            style="font-weight:300; color:var(--mid);">(optional)</span></label>
-                    <textarea id="message" name="message" placeholder="Anything you'd like us to know…"></textarea>
+                    <label for="fname">{{ form.name.label.text }} *</label>
+                    {{ form.name(class="form-control", id="fname", placeholder="Your name") }}
+                    {% for error in form.name.errors %}
+                    <span class="form-error">{{ error }}</span>
+                    {% endfor %}
                 </div>
 
-                <button type="submit" class="form-submit">Send Message →</button>
+                <div class="form-group">
+                    <label for="email">{{ form.email.label.text }} *</label>
+                    {{ form.email(class="form-control", id="email", placeholder="you@email.com") }}
+                    {% for error in form.email.errors %}
+                    <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    <label for="association">{{ form.association.label.text }} <span
+                            style="font-weight:300; color:var(--mid);">(optional)</span></label>
+                    {{ form.association(class="form-control", id="association", placeholder="Neighborhood association, employer, school, etc.") }}
+                    {% for error in form.association.errors %}
+                    <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">{{ form.interest.label.text }}</label>
+                    {{ form.interest(class="form-control", id="interest") }}
+                    {% for error in form.interest.errors %}
+                    <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    <label for="message">{{ form.message.label.text }} <span
+                            style="font-weight:300; color:var(--mid);">(optional)</span></label>
+                    {{ form.message(class="form-control", id="message", placeholder="Anything you'd like us to know…") }}
+                    {% for error in form.message.errors %}
+                    <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                {{ form.submit(class="form-submit") }}
             </form>
 
             <p class="form-note">We respect your privacy and will never share your information.</p>

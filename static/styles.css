@@ -499,7 +499,7 @@ nav {
 
 /* ── EVENTS PAGE ── */
 .events-hero {
-    background: var(--cream);
+    background: var(--warm-white);
     padding: var(--section-pad) clamp(1.5rem, 6vw, 4rem);
     border-bottom: 1px solid var(--border);
 }

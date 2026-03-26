@@ -18,6 +18,7 @@
     --mid: #6B6560;
     --border: #DDD6CC;
     --section-pad: clamp(4rem, 8vw, 7rem);
+    color-scheme: light;
 }
 
 html {

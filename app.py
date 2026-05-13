@@ -6,7 +6,7 @@ from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
 from wtforms import SelectField
-from datetime import datetime
+from datetime import datetime, timezone
 
 load_dotenv() 
 
@@ -17,7 +17,7 @@ csrf = CSRFProtect(app)
 
 @app.context_processor
 def inject_now():
-    return {"current_year": datetime.utcnow().year}
+    return {"current_year": datetime.now(timezone.utc).year}
 
 # ---------------------
 # Flask-WTF Form
